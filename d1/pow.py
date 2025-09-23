@@ -1,7 +1,6 @@
 import hashlib
 import time
 
-
 def find_hash_with_prefix(nickname, prefix):
     nonce = 0
     start_time = time.time()
@@ -39,6 +38,3 @@ if __name__ == "__main__":
     print(f"花费时间: {time5:.4f}秒")
     print(f"内容: {content5}")
     print(f"哈希值: {hash5}")
-
-
-
