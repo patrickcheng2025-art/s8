@@ -1,15 +1,16 @@
 '''
-• 通过 Metamask 向Bank合约存款（转账ETH）
+• 通过 Metamask 向Bank合约存款(转账ETH)
 • 在Bank合约记录每个地址存款金额
 • 用数组记录存款金额前 3 名
 • 编写 Bank合约 withdraw(), 实现只有管理员提取出所有的 ETH
 '''
 
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-contract Bank {
+import "../d4/IBank.sol";
+
+contract Bank is IBank {
     // 管理员地址
     address public immutable owner;
 
@@ -29,7 +30,7 @@ contract Bank {
         owner = msg.sender;
     }
 
-    //  modifier 检查是否为管理员
+    // modifier 检查是否为管理员
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner can call this function");
         _;
@@ -49,7 +50,6 @@ contract Bank {
         emit Deposited(msg.sender, msg.value);
     }
 
-
     // 更新存款前三名
     function updateTopDepositors(address user, uint256 amount) private {
         // 检查是否能进入前三名
@@ -60,32 +60,31 @@ contract Bank {
             if (amount > topAmounts[i]) {
                 // 如果不是最后一位，需要向后移动
                 if (i < 2) {
-                    topDepositors[i+1] = topDepositors[i];
-                    topAmounts[i+1] = topAmounts[i];
-                    if(i==0) {
-                        // insert 
+                    topDepositors[i + 1] = topDepositors[i];
+                    topAmounts[i + 1] = topAmounts[i];
+                    if (i == 0) {
+                        // insert
                         topDepositors[i] = user;
                         topAmounts[i] = amount;
                         inserted = true;
                     }
                 }
-            }  
-            
-            else {
-              if(i<2) {
-                topDepositors[i+1] = user;
-                topAmounts[i+1] = amount;
-                inserted = true;
-              }
+            } else {
+                if (i < 2) {
+                    topDepositors[i + 1] = user;
+                    topAmounts[i + 1] = amount;
+                    inserted = true;
+                }
             }
-            if (inserted) 
+            if (inserted) {
                 break;
+            }
         }
     }
 
     // 管理员提取所有ETH
     function withdraw() external onlyOwner {
-        // 查询合约账户中当前有多少 ETH，即所有用户存入的 ETH 总和。
+        // 查询合约账户中当前有多少 ETH，即所有用户存入的 ETH 总和
         uint256 balance = address(this).balance;
         require(balance > 0, "No funds to withdraw");
 
@@ -107,8 +106,8 @@ contract Bank {
     }
 
     // 接收ETH的fallback函数
-    //当有人直接向合约地址转账 ETH（不调用任何函数）时，这个函数会自动执行。 作用： 自动调用 deposit() 函数，将转账记录到发送者的余额中。
-    
+    // 当有人直接向合约地址转账 ETH(不调用任何函数)时，这个函数会自动执行
+    // 作用：自动调用 deposit() 函数，将转账记录到发送者的余额中
     receive() external payable {
         deposit();
     }
