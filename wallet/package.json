@@ -1,0 +1,21 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "description": "基于 Viem.js 的命令行以太坊钱包，支持 ERC20 代币转账（EIP-1559）",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "example": "node example.js",
+    "test": "node test-balance.js",
+    "test-balance": "node test-balance.js",
+    "test-transfer": "node test-transfer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "viem": "^2.38.0"
+  }
+}
