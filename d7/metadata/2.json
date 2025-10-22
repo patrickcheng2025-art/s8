@@ -1,0 +1,25 @@
+{
+  "name": "Cool Dog #2",
+  "description": "This is my second NFT - a loyal dog on the blockchain!",
+  "image": "ipfs://YOUR_IMAGE_CID_HERE",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Dog"
+    },
+    {
+      "trait_type": "Color",
+      "value": "Brown"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Hat"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    }
+  ],
+  "external_url": "https://github.com/yourusername",
+  "background_color": "E8F4F8"
+}

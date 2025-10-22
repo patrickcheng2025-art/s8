@@ -1,0 +1,25 @@
+{
+  "name": "Cool Cat #1",
+  "description": "This is my first NFT - a cool cat exploring the blockchain world!",
+  "image": "ipfs://YOUR_IMAGE_CID_HERE",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Cat"
+    },
+    {
+      "trait_type": "Color",
+      "value": "Orange"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Sunglasses"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    }
+  ],
+  "external_url": "https://github.com/yourusername",
+  "background_color": "FFFFFF"
+}

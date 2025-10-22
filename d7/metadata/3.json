@@ -1,0 +1,25 @@
+{
+  "name": "Cool Bird #3",
+  "description": "This is my third NFT - a free bird flying in the crypto sky!",
+  "image": "ipfs://YOUR_IMAGE_CID_HERE",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Bird"
+    },
+    {
+      "trait_type": "Color",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Accessory",
+      "value": "Crown"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    }
+  ],
+  "external_url": "https://github.com/yourusername",
+  "background_color": "FFE5CC"
+}
